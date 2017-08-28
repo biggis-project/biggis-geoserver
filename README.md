@@ -11,4 +11,4 @@ docker-compose up -d
 ```
 
 ## Ports
-- WebUI is running on url `http://dockerhost:9090/geoserver`
+- WebUI is running on `http://dockerhost:9090/geoserver`
