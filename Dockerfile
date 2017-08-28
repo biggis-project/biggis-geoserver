@@ -67,7 +67,7 @@ RUN set -x && \
 # RUN set -x \
 #     && cd ${GEOSERVER_HOME} \
 #     && tar zxvf /opt/geomesa/dist/gs-plugins/geomesa-geojson-gs-plugin_2.11-${GEOMESA_VERSION}-install.tar.gz
-#
+# 
 # # Install GeoMesa Process Jar
 # RUN set -x \
 #     && cd ${GEOSERVER_HOME} \
