@@ -1,0 +1,32 @@
+version: '2'
+services:
+
+  geoserver:
+    image: biggis/geoserver:2.10.4
+    hostname: geoserver
+    environment:
+      USER_ID: 1000
+      USER_NAME: geoserver
+      TOMCAT_ADMIN: biggis
+      TOMCAT_ADMIN_PASSWORD: biggis
+      TIMEZONE: Europe/Berlin
+      CATALINA_HOME: /opt/tomcat
+    labels:
+      io.rancher.container.pull_image: always
+      traefik.frontend.rule: 'Host: rancher.biggis.project.de; AddPrefix: /geoserver; PathPrefixStrip:/geoserver/'
+      traefik.port: '9090'
+      traefik.enable: 'true'
+      io.rancher.container.pull_image: always
+    volumes:
+     - geoserver-data:/opt/tomcat/webapps/geoserver/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+
+volumes:
+ geoserver-data:
+   driver: rancher-nfs
+   external: true
